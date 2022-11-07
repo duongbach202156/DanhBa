@@ -19,10 +19,55 @@ namespace WDFDemo
     /// </summary>
     public partial class Window1 : Window
     {
+        void UpdateData()
+        {
+            this.MainTable.ItemsSource = null;
+            this.MainTable.ItemsSource = Demo.DanhBa;
+        }
         public Window1()
         {
             InitializeComponent();
-            this.MainTable.ItemsSource = Demo.DanhBa;
+            ButtonCreate.Click += (s, e) => {
+                var item = new DanhBa();
+                var frm = new InputFormWindow { 
+                    DataContext = item,
+                    Title = "Thêm danh bạ"
+                };
+                if (frm.ShowDialog() == true)
+                {
+                    Demo.DanhBa.Add(item);
+                    UpdateData();
+                }
+            };
+            ButtonDelete.Click += (s, e) => {
+                var item = (DanhBa)MainTable.SelectedItem;
+                if (item == null)
+                {
+                    MessageBox.Show("Select an item first", "System");
+                    return;
+                }
+
+                var res = MessageBox.Show("Are you sure to delete selected item?", "System", MessageBoxButton.YesNo);
+                if (res == MessageBoxResult.Yes)
+                {
+                    Demo.DanhBa.Remove(item);
+                    UpdateData();
+                }    
+            };
+            MainTable.MouseDoubleClick += (s, e) => {
+                var item = (DanhBa)MainTable.SelectedItem;
+                var frm = new InputFormWindow
+                {
+                    DataContext = item,
+                    Title = "Chỉnh sửa danh bạ"
+                };
+                if (frm.ShowDialog() == true)
+                {
+                }
+            };
+
+
+            UpdateData();
         }
     }
 }

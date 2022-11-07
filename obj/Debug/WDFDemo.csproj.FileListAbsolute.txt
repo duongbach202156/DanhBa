@@ -19,3 +19,5 @@ E:\Code\C#\WDFDemo\bin\Debug\MaterialDesignColors.dll
 E:\Code\C#\WDFDemo\bin\Debug\MaterialDesignThemes.Wpf.dll
 E:\Code\C#\WDFDemo\obj\Debug\App.baml
 E:\Code\C#\WDFDemo\obj\Debug\WDFDemo.csproj.CopyComplete
+E:\Code\C#\WDFDemo\obj\Debug\InputFormWindow.g.cs
+E:\Code\C#\WDFDemo\obj\Debug\InputFormWindow.baml

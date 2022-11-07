@@ -7,13 +7,23 @@
         mc:Ignorable="d"
         Title="Danh ba" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="MainTable">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Background="#111" Padding="5 0">
+            <StackPanel x:Name="Header" Orientation="Horizontal">
+                <Button x:Name="ButtonCreate" Margin="4 0">Create Contact</Button>
+                <Button x:Name="ButtonDelete" Margin="4 0">Delete</Button>
+            </StackPanel>
+        </Border>
+        <ListView x:Name="MainTable" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="Ten"
                                         DisplayMemberBinding="{Binding Path=Ten}">
-                            
+
                         </GridViewColumn>
                         <GridViewColumn Header="SoDT"
                                         DisplayMemberBinding="{Binding Path=SoDT}">
